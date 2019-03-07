@@ -5,4 +5,6 @@ CONSUMER_SECRET='4tpy2EnC3hZvOTak20TahukgiKYxQECinrlFHizLWf2iyPgKhq'
 ACCESS_TOKEN='797759611130486784-frTkkgU1xCNfP9mEpYfJnVbC7AxHTqp'
 ACCESS_TOKEN_SECRET='P56T8WlIvUQ7aqyKKY5jyRHn5MLf8Vh2SljkVg5MAmJvo'
 CSVDELIMITER=';'
-PROJECTPATH = os.path.dirname(os.path.realpath(__file__))
+PROJECTPATH=os.path.dirname(os.path.realpath(__file__))
+#CREDENTIALSFILENAME='Test-bd04a274485a.json'
+CREDENTIALSFILENAME='Test-7ac80002e146.json'

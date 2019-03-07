@@ -3,13 +3,13 @@ import os
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-from settings import PROJECTPATH
+from settings import PROJECTPATH, CREDENTIALSFILENAME
 
 
 def get_all_values():
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 
-    credentials_file_path = os.path.join(PROJECTPATH, 'Test-bd04a274485a.json')
+    credentials_file_path = os.path.join(PROJECTPATH, CREDENTIALSFILENAME)
 
     credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_file_path, scope)
 

@@ -1,3 +1,5 @@
+import re
+
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
@@ -7,6 +9,8 @@ from network.google import get_all_values
 def get_url_data(response):
     soup = BeautifulSoup(response.text, 'html.parser')
     title = soup.find('title').text.strip()
+    title = title.replace('\n', '')
+    title = re.sub(' +', ' ', title)
     url = response.url
     parsed_url = urlparse(url)
     domain = parsed_url.netloc
