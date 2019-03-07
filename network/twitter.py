@@ -1,5 +1,5 @@
 import twitter
-
+import datetime
 from settings import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 
 api = twitter.Api(consumer_key=CONSUMER_KEY,
@@ -12,8 +12,8 @@ def get_twitter_urls_data(slug, owner_screen_name):
     twitter_data = api.GetListTimeline(slug=slug, owner_screen_name=owner_screen_name, count=200)
     twitter_urls_data = []
     for data in twitter_data:
+        created_at = datetime.datetime.strptime(data.created_at, '%a %b %d %H:%M:%S +0000 %Y')
         for url in data.urls:
             if 'twitter.com' not in url.expanded_url:
-                twitter_urls_data.append({'url': url.expanded_url, 'date': ''})
-    #twitter_urls_data = [{'url': url.expanded_url, 'date': ''} for data in twitter_data for url in data.urls if 'twitter.com' not in url.expanded_url]
-    return twitter_urls_data
+                twitter_urls_data.append({'url': url.expanded_url, 'created_at': created_at})
+    return twitter_urls_data[::-1]
