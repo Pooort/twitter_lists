@@ -9,6 +9,7 @@ from usecase.manager import get_url_data, get_lists_data
 update_data = read_update_data()
 
 twitter_lists = get_lists_data()
+#twitter_lists = [{'slug': 'mufg', 'owner_screen_name': 'ranjanxroy'}]
 
 for twitter_list in twitter_lists:
     slug = twitter_list['slug']
